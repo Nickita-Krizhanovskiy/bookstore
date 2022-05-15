@@ -1,1 +1,1 @@
-# react-blogologo
+# react-bookstore
