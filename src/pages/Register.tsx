@@ -3,7 +3,7 @@ import { routes } from "../routes/routes";
 import { useForm } from "react-hook-form";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useDispatch } from "react-redux";
-import { setUser } from "../store/slices/userReducer";
+import { setUser } from "../store/slices/UserReducer";
 
 const Register = () => {
   const navigate = useNavigate();
