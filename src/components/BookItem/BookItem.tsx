@@ -1,18 +1,31 @@
-import { IBook } from "../../types/Books";
-import { StyledBookItem } from "./style";
+import { IBook } from "../../types/books";
+import {
+  StyledBlock,
+  StyledImage,
+  StyledImageBlock,
+  StyledLink,
+  StyledPrice,
+  StyledSubtitle,
+  StyledText,
+  StyledTitle,
+} from "./style";
 
 interface IBookItemProps {
   book: IBook;
 }
 const BookItem = ({ book }: IBookItemProps) => {
   return (
-    <StyledBookItem>
-      <img src={book.image} alt={book.title} />
-      <h2>{book.title}</h2>
-      <p>{book.isbn13}</p>
-      <p>{book.subtitle}</p>
-      <p>{book.price}</p>
-    </StyledBookItem>
+    <StyledLink to={`/books/${book.isbn13}`}>
+      <StyledImageBlock>
+        <StyledImage src={book.image} alt={book.title} />
+      </StyledImageBlock>
+      <StyledBlock>
+        <StyledTitle>{book.title}</StyledTitle>
+        <StyledText>{book.isbn13}</StyledText>
+        <StyledSubtitle>{book.subtitle}</StyledSubtitle>
+        <StyledPrice>{book.price}</StyledPrice>
+      </StyledBlock>
+    </StyledLink>
   );
 };
 

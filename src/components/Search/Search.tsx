@@ -1,16 +1,20 @@
-import { ChangeEvent } from "react";
-import { StyledSearch } from "./style";
-interface IProps {
-  handleSearch: (e: ChangeEvent<HTMLInputElement>) => void;
-  searchValue: string;
-}
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { SearchLogo } from "../../assets";
+import { StyledButton, StyledForm, StyledSearch } from "./style";
 
-export const Search = ({ handleSearch, searchValue }: IProps) => {
+export const Search = () => {
+  const { register, handleSubmit } = useForm();
+  const navigate = useNavigate();
+  const onSubmit = (data: any) => {
+    navigate(`/search/${data.title}/1`);
+  };
   return (
-    <StyledSearch
-      placeholder="search ..."
-      onChange={handleSearch}
-      value={searchValue}
-    />
+    <StyledForm onSubmit={handleSubmit(onSubmit)}>
+      <StyledSearch type="text" placeholder="Search" {...register("title")} />
+      <StyledButton type="submit">
+        <SearchLogo />
+      </StyledButton>
+    </StyledForm>
   );
 };

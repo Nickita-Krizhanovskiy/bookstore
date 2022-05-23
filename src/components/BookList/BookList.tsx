@@ -1,5 +1,5 @@
 import { StyledBooksList } from "./style";
-import { IBook } from "../../types/Books";
+import { IBook } from "../../types/books";
 import BookItem from "../BookItem/BookItem";
 
 interface IBookListProps {
