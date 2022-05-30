@@ -6,10 +6,10 @@ import { StyledNav } from "./style";
 export const Nav = () => {
   return (
     <StyledNav>
-      <Link to={routes.FAVORITEBOOKS}>
+      <Link to={routes.FAVORITE_BOOK}>
         <Heart />
       </Link>
-      <Link to={routes.BAG}>
+      <Link to={routes.CARD}>
         <ShoppingBag />
       </Link>
       <Link to={routes.USER}>

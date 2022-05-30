@@ -32,3 +32,16 @@ export interface IBookDetailsApi {
 export interface ISearchBooksApi extends INewBooksApi {
   page: string;
 }
+
+export interface IUserStore {
+  isAuth: boolean;
+  email: string | null;
+}
+
+export interface IFavorites {
+  favorites: IBook[];
+}
+
+export interface ICards {
+  cards: IBook[];
+}
