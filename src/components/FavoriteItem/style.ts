@@ -49,4 +49,7 @@ export const HeartContainer = styled.div`
   max-width: 56px;
   width: 100%;
   cursor: pointer;
+  &:hover {
+    color: ${Colors.CT_RED}
+  }
 `;

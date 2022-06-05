@@ -35,7 +35,8 @@ export interface ISearchBooksApi extends INewBooksApi {
 
 export interface IUserStore {
   isAuth: boolean;
-  email: string | null;
+  email: string | undefined;
+  name: string | undefined;
 }
 
 export interface IFavorites {
@@ -44,4 +45,14 @@ export interface IFavorites {
 
 export interface ICards {
   cards: IBook[];
+}
+
+export type RequestStatusType = "idle" | "loading" | "success" | "error";
+
+export interface IBooks {
+  response: boolean | null;
+  results: IBook[];
+  totalResults: number;
+  currentPage?: number;
+  totalPages: number;
 }

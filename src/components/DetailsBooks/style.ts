@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ArrowDown } from "../../assets";
+import { Down } from "../../assets/index";
 import { Colors } from "../../ui/colors";
 import { typography } from "../../ui/typography";
 
@@ -81,6 +81,6 @@ export const StyledDescriptionButtons = styled.button`
     transition: 0.3s linear;
   }
 `;
-export const StyledArrowDown = styled(ArrowDown)`
+export const StyledArrowDown = styled(Down)`
   margin-left: 5px;
 `;
