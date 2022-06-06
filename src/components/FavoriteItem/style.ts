@@ -15,6 +15,7 @@ export const StyledImageBlock = styled.div`
 -webkit-box-shadow: 20px 15px 32px 0px rgba(9, 20, 28, 0.47);
 -moz-box-shadow: 20px 15px 32px 0px rgba(9, 20, 28, 0.47);
 box-shadow: 20px 15px 32px 0px rgba(9, 20, 28, 0.47);
+border-radius: 10px;
 `;
 
 export const StyledImage = styled.img`

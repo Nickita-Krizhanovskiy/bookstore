@@ -67,7 +67,7 @@ export const SignUp = () => {
               {...register("password")}
             />
           </label>
-          <StyledButton type="submit">Sign in</StyledButton>
+          <StyledButton type="submit">Sign up</StyledButton>
         </StyledForm>
       </StyledSignUp>
     </StyledContainer>
