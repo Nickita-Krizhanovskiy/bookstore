@@ -1,10 +1,11 @@
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
-import React from "react";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { routes } from "../../routes/routes";
 import { setUser } from "../../store/slices/UserReducer";
+
 import {
   StyledButton,
   StyledContainer,
@@ -14,27 +15,36 @@ import {
   StyledLink,
   StyledPasswordInput,
   StyledSignIn,
-  StyledText,
   StyledTitle,
+  ErrorMessage,
 } from "./style";
 
 export const SignIn = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
+  const [isSignInError, setIsSignInError] = useState(false);
+
   const onSubmit = (data: any) => {
     const auth = getAuth();
-    createUserWithEmailAndPassword(auth, data.email, data.password)
+    signInWithEmailAndPassword(auth, data.email, data.password)
       .then((userCredential) => {
         dispatch(setUser(userCredential.user.email));
+
         navigate(routes.NEWBOOK);
       })
-      .catch(console.error);
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.log(errorMessage);
+        setIsSignInError(true);
+      });
   };
+
   return (
     <StyledContainer>
       <StyledSignIn>
         <StyledTitle>Sign In</StyledTitle>
+
         <StyledForm onSubmit={handleSubmit(onSubmit)}>
           <label>
             <StyledLabel>Email</StyledLabel>
@@ -52,7 +62,14 @@ export const SignIn = () => {
               {...register("password")}
             />
           </label>
-          <StyledText>Forgot password?</StyledText>
+          {isSignInError ? (
+            <ErrorMessage>
+              Incorrect email or password. Please, try again.
+            </ErrorMessage>
+          ) : (
+            ""
+          )}
+
           <StyledButton type="submit">Sign in</StyledButton>
           <StyledLink to={routes.SIGN_UP}>Create account</StyledLink>
         </StyledForm>
