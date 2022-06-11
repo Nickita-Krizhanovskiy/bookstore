@@ -1,10 +1,8 @@
 import styled from "styled-components";
-import { Back } from "../../assets/index";
 
-export const StyledBackButton = styled(Back)`
+export const BackButtonBlock = styled.div`
   margin-bottom: 32px;
-  max-width: 50px;
+  max-width: 42px;
   width: 100%;
-  height: 20px;
   cursor: pointer;
 `;

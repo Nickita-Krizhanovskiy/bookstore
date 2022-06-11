@@ -1,11 +1,18 @@
-import { StyledBackButton } from "./style";
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { ArrowLeft } from "../../assets";
+import { BackButtonBlock } from "./style";
 
-interface IBackButton {
-  onClick: () => void;
-}
+export const BackButton = () => {
+  const navigate = useNavigate();
 
-export const BackButton = ({ onClick }: IBackButton) => {
-  return <StyledBackButton type="button" onClick={onClick} />;
+  const handleBack = () => {
+    navigate(-1);
+  };
+
+  return (
+    <BackButtonBlock onClick={handleBack}>
+      <ArrowLeft />
+    </BackButtonBlock>
+  );
 };
-
-export default BackButton;

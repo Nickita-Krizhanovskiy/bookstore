@@ -1,27 +1,25 @@
 import styled from "styled-components";
+import { ArrowLeft, ArrowRight } from "../../assets";
 import { Colors } from "../../ui/colors";
 
-export const StyledPagination = styled.div`
+export const StyledPaginationContainer = styled.div`
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-  margin-bottom: 20px;
+  justify-content: space-between;
 `;
-
-export const Button = styled.button`
-  max-width: 100%;
-  width: 80px;
+export const StyledPaginationButton = styled.button`
+  border: none;
+  background-color: ${Colors.BG_WHITE};
+  color: ${Colors.PRIMARY};
+  font-weight: 700;
   font-size: 16px;
-  line-height: 32px;
-  color: ${Colors.PRIMARY2};
-  border-bottom: 1px solid ${Colors.CT_RED};
-  &:hover {
-    border-bottom: 1px solid ${Colors.PRIMARY};
-  }
-  &:active {
-    box-shadow: 4px 4px 30px ${Colors.CT_RED}
-  }
+  line-height: 24px;
+  cursor: pointer;
+`;
+export const StyledArrowLeft = styled(ArrowLeft)`
+  margin-right: 12px;
+`;
+export const StyledArrowRight = styled(ArrowRight)`
+  margin-left: 12px;
 `;
 
 export const Pages = styled.div`
@@ -32,12 +30,23 @@ export const Page = styled.button`
   width: 30px;
   height: 30px;
   padding: 3px;
-  margin: 0 5px;
-  border-bottom: 1px solid ${Colors.CT_RED};
+  margin-left: 5px;
+  margin-right: 5px;
+  background-color: ${Colors.BG_WHITE};
+  border: ${Colors.BG_WHITE};
   cursor: pointer;
 `;
-
+export const PageRight = styled.button`
+  width: 30px;
+  height: 30px;
+  padding: 3px;
+  margin-left: 5px;
+  margin-right: 5px;
+  background-color: ${Colors.BG_WHITE};
+  color: ${Colors.BG_GREY};
+  border: ${Colors.BG_WHITE};
+  cursor: pointer;
+`;
 export const CurrentPage = styled(Page)`
-  border: 1px solid #111612;
-  background-color: ${Colors.TT_ORANGE};
+  /* border: 1px solid rgb(13, 12, 29); */
 `;

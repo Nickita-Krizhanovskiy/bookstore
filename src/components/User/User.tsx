@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useAppSelector } from "../../store/hooks/hooks";
-import { getUser } from "../../store/selector/userReducer";
+import { getUser } from "../../store/selector/userSelector";
 import { setUser, setUserName } from "../../store/slices/UserReducer";
 import {
   StyledForm,

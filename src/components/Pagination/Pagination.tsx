@@ -1,55 +1,64 @@
-import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { bookAPI } from "../../services/bookService";
-import { ISearchBooksApi } from "../../types/books";
-import { CurrentPage, Page, Pages, StyledPagination, Button } from "./style";
+import { useAppSelector } from "../../store/hooks/hooks";
+import { getBooks } from "../../store/selector/bookSelector";
 
-const Pagination = () => {
-  const { title = "", page = "" } = useParams();
-  const [searchResult, setSearchResult] = useState<ISearchBooksApi>();
-  const navigation = useNavigate();
+import {
+  CurrentPage,
+  PageRight,
+  Pages,
+  StyledArrowLeft,
+  StyledArrowRight,
+  StyledPaginationButton,
+  StyledPaginationContainer,
+} from "./style";
+
+export const Pagination = () => {
+  const { page = "", title = "" } = useParams();
+  const navigate = useNavigate();
+  const { books, total } = useAppSelector(getBooks);
+
+  const handleNextPage = () => {
+    navigate(`/bookstore/search/${title}/${Number(page) + 1}`);
+  };
+  const handlePrevPage = () => {
+    if (Number(page) === 1) {
+      return;
+    }
+    navigate(`/bookstore/search/${title}/${Number(page) - 1}`);
+  };
 
   const handleNextButton = () => {
-    if (searchResult?.total && +page < Math.ceil(+searchResult?.total) / 10) {
-      navigation(`/search/${title}/${Number(page) + 1}`);
-    }
+    navigate(`/bookstore/search/${title}/${Number(page) + 1}`);
+    window.scrollTo(0, 0);
   };
 
   const handlePrevButton = () => {
     if (+page > 1) {
-      navigation(`/search/${title}/${Number(page) - 1}`);
+      navigate(`/bookstore/search/${title}/${Number(page) - 1}`);
+      window.scrollTo(0, 0);
     }
   };
 
-  useEffect(() => {
-    bookAPI.getBooksBySearch(title, page).then((books) => {
-      setSearchResult(books);
-    });
-  }, [title, page]);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [page]);
-
   return (
-    <StyledPagination>
-      <Button type="button" onClick={handlePrevButton}>
+    <StyledPaginationContainer>
+      <StyledPaginationButton type="button" onClick={handlePrevPage}>
+        <StyledArrowLeft />
         Prev
-      </Button>
+      </StyledPaginationButton>
+
       <Pages>
-        <Page onClick={handlePrevButton}>{+page > 1 ? +page - 1 : ""}</Page>
+        <PageRight onClick={handlePrevButton}>
+          {+page > 1 ? +page - 1 : ""}
+        </PageRight>
         <CurrentPage>{page}</CurrentPage>
-        <Page onClick={handleNextButton}>
-          {searchResult?.total && +page < Math.ceil(+searchResult?.total) / 10
-            ? +page + 1
-            : ""}
-        </Page>
+        <PageRight onClick={handleNextButton}>
+          {total && +page < Math.ceil(+total) / 10 ? +page + 1 : +page + 1}
+        </PageRight>
       </Pages>
-      <Button type="button" onClick={handleNextButton}>
+      <StyledPaginationButton type="button" onClick={handleNextPage}>
         Next
-      </Button>
-    </StyledPagination>
+        <StyledArrowRight />
+      </StyledPaginationButton>
+    </StyledPaginationContainer>
   );
 };
-
-export default Pagination;

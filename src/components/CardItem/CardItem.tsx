@@ -1,14 +1,19 @@
-import { useState } from "react";
-import { Cancel } from "../../assets";
+import { Cancel, Minus, Plus } from "../../assets";
 import { routes } from "../../routes/routes";
 import { useAppDispatch } from "../../store/hooks/hooks";
-import { removeCard } from "../../store/slices/cardReducer";
-import { IBook } from "../../types/books";
 import {
+  decreaseAmount,
+  increaseAmount,
+  removeCard,
+} from "../../store/slices/cardReducer";
+import { IBookCard } from "../../types/books";
+import {
+  AmountContainer,
+  Button,
+  Count,
+  DescriptionBlock,
   HeartContainer,
-  StyledBlock,
-  StyledCountButton,
-  StyledCountContainer,
+  StyledContainerCard,
   StyledImage,
   StyledImageBlock,
   StyledLink,
@@ -17,50 +22,59 @@ import {
   StyledTitle,
 } from "./style";
 
-interface IBookItemProps {
-  book: IBook;
+interface IBookCardProps {
+  book: IBookCard;
 }
 
-export const CardItem = ({ book }: IBookItemProps) => {
+export const CardItem = ({ book }: IBookCardProps) => {
   const dispatch = useAppDispatch();
-  const handleRemoveCard = (card: IBook) => {
-    dispatch(removeCard(card));
+  const handleRemoveCard = (book: IBookCard) => {
+    dispatch(removeCard(book));
   };
-  const [count, setCount] = useState(1);
-  const handleButtonMin = () => {
-    setCount(count - 1);
+  const handlePlus = (book: IBookCard) => {
+    dispatch(increaseAmount(book));
   };
-  const handleButtonPlus = () => {
-    setCount(count + 1);
-  };
-  return (
-    <StyledLink to={`${routes.CARD}/${book.isbn13}`}>
-      <StyledImageBlock>
-        <StyledImage
-          src={book.image}
-          alt={book.title}
-          onClick={() => handleRemoveCard}
-        />
-      </StyledImageBlock>
-      <StyledBlock>
-        <StyledTitle>{book.title}</StyledTitle>
-        <StyledSubtitle>{book.subtitle}</StyledSubtitle>
-        <StyledCountContainer>
-          <StyledCountButton type="button" onClick={handleButtonMin}>
-            -
-          </StyledCountButton>
 
-          <StyledCountButton type="button" onClick={handleButtonPlus}>
-            +
-          </StyledCountButton>
-        </StyledCountContainer>
-      </StyledBlock>
-      <StyledBlock>
-        <StyledPrice>{book.price}</StyledPrice>
-      </StyledBlock>
-      <HeartContainer>
-        <Cancel />
-      </HeartContainer>
-    </StyledLink>
+  const handleMinus = (book: IBookCard) => {
+    if (book.amount > 1) {
+      dispatch(decreaseAmount(book));
+    }
+  };
+
+  return (
+    <>
+      <StyledContainerCard>
+        <StyledLink to={`/bookstore/books/${book.isbn13}`}>
+          <StyledImageBlock>
+            <StyledImage src={book.image} alt={book.title} />
+          </StyledImageBlock>
+        </StyledLink>
+        <DescriptionBlock>
+          <StyledLink to={`/bookstore/books/${book.isbn13}`}>
+            <StyledTitle>{book.title ? book.title : "No title"}</StyledTitle>
+            <StyledSubtitle>
+              {book.subtitle ? book.subtitle : "No subtitle"}
+            </StyledSubtitle>
+          </StyledLink>
+          <AmountContainer>
+            <Button>
+              <Minus onClick={() => handleMinus(book)} />
+            </Button>
+            <Count>{book.amount}</Count>
+            <Button>
+              <Plus onClick={() => handlePlus(book)} />
+            </Button>
+          </AmountContainer>
+        </DescriptionBlock>
+
+        <StyledPrice>
+          {book.price === "$0.00" ? "Free" : book.price}
+        </StyledPrice>
+
+        <HeartContainer type="button" onClick={() => handleRemoveCard(book)}>
+          <Cancel />
+        </HeartContainer>
+      </StyledContainerCard>
+    </>
   );
 };

@@ -1,10 +1,10 @@
 import { Route, Routes } from "react-router";
 import { MainTemplate } from "../components/MainTemplate/MainTemplate";
 import { Search } from "../components/Search/Search";
-import { DetailsBooks } from "../components/Details/Details";
+import { DetailsBook } from "../pages/DetailsBook";
 import { Cards } from "../pages/Cards";
 import { FavoritesBook } from "../pages/FavoritesBook";
-import Login from "../pages/Login";
+import Login from "../pages/Register";
 import { NewBook } from "../pages/NewBook";
 import NotFound from "../pages/NotFound";
 import Register from "../pages/SignUp";
@@ -16,7 +16,7 @@ import { routes } from "../routes/routes";
 export const AppRouter = () => {
   return (
     <Routes>
-      <Route path="/" element={<MainTemplate />}>
+      <Route path="/bookstore" element={<MainTemplate />}>
         {/* <Route index element={<Home />} /> */}
         <Route path={routes.NEWBOOK} element={<NewBook />} />
         <Route path={routes.SEARCH} element={<Search />} />
@@ -24,7 +24,7 @@ export const AppRouter = () => {
           path={routes.SEARCH_BOOK_RESULT}
           element={<SearchBookResult />}
         />
-        <Route path={routes.DETAILS_BOOK} element={<DetailsBooks />} />
+        <Route path={routes.DETAILS_BOOK} element={<DetailsBook />} />
         <Route path={routes.FAVORITE_BOOK} element={<FavoritesBook />} />
         <Route path={routes.CARD} element={<Cards />} />
         <Route path={routes.USER} element={<User />} />
