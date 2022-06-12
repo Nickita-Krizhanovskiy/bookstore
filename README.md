@@ -5,7 +5,7 @@
     <img src="bookstore.svg" alt="Logo" width="100" height="90">
     <p align="center">
     ·
-    <a href="https://zlata-saburova.github.io/bookstore/">View Demo</a>
+    <a href="">View Demo</a>
     · </p>
 </div>
 
@@ -61,7 +61,7 @@ User ability:
 2. Register on [Firebase](https://firebase.google.com/), create your data base and copy Firebase configuration
 3. Clone the repo
    ```sh
-   git clone https://github.com/Zlata-Saburova/bookstore.git
+   git clone https://github.com/Nickita-Krizhanovskiy/react-bookstore
    ```
 4. Install NPM packages
    ```sh
