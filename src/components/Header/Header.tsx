@@ -1,18 +1,18 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import { Logotype } from "../../assets";
-
+import { Logo } from "../../assets/icons";
+import { HeaderForm } from "../HeaderForm/HeaderForm";
 import { Nav } from "../Nav/Nav";
-import { Search } from "../Search/Search";
-import { StyledHeader } from "./style";
+import { StyledHeader, LogoContainer } from "./styles";
 
 export const Header = () => {
   return (
     <StyledHeader>
-      <Link to="/">
-        <Logotype />
+      <Link to="/bookstore">
+        <LogoContainer>
+          <Logo />
+        </LogoContainer>
       </Link>
-      <Search />
+      <HeaderForm />
       <Nav />
     </StyledHeader>
   );

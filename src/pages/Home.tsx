@@ -1,13 +1,21 @@
-import { useSelector } from "react-redux";
-import { Navigate } from "react-router-dom";
-import { routes } from "../routes/routes";
-import { RootState } from "../store/store";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import { BookSlider } from "../components/BookSlider/BookSlider";
+
+import { Title } from "../components/Title/Title";
 
 export const Home = () => {
-  const { isAuth, email } = useSelector(({ user }: RootState) => user);
-
-  if (isAuth) {
-    return <div>{email}</div>;
-  }
-  return <Navigate to={routes.SIGN_UP} />;
+  return (
+    <>
+      <Title>Our books</Title>
+      <NewLink to="/bookstore/new">
+        <BookSlider />
+      </NewLink>
+      
+    </>
+  );
 };
+
+const NewLink = styled(Link)`
+  text-decoration: none;
+`;

@@ -1,12 +1,12 @@
 import { BrowserRouter } from "react-router-dom";
+import GlobalStyles from "./ui/GlobalStyles";
 import { AppRouter } from "./router/AppRouter";
 
-const App = () => {
+export const App = () => {
   return (
     <BrowserRouter>
+      <GlobalStyles />
       <AppRouter />
     </BrowserRouter>
   );
 };
-
-export default App;

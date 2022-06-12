@@ -1,23 +1,20 @@
 import { Outlet } from "react-router-dom";
-import styled from "styled-components";
+import GlobalStyles from "../../ui/GlobalStyles";
 import { Footer } from "../Footer/Footer";
 import { Header } from "../Header/Header";
+import { Container, StyledApp } from "./styles";
 
 export const MainTemplate = () => {
   return (
-    <div>
+    <>
+      <GlobalStyles />
       <StyledApp>
-        <Header />
-        <Outlet />
-        <Footer />
+        <Container>
+          <Header />
+          <Outlet />
+          <Footer />
+        </Container>
       </StyledApp>
-    </div>
+    </>
   );
 };
-
-const StyledApp = styled.div`
-  padding: 0 16px;
-  max-width: 1120px;
-  width: 100%;
-  margin: 0 auto;
-`;

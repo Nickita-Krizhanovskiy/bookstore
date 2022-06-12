@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IBook, IBookDetailsApi, IUserStore } from "../../types/books";
+import { IBookDetailsApi } from "../../services/types";
+import { IUserStore } from "../types";
 
 const initialState: IUserStore = {
   isAuth: false,
@@ -8,6 +9,7 @@ const initialState: IUserStore = {
   favorites: [],
   password: undefined,
 };
+
 const userSlice = createSlice({
   name: "user",
   initialState,
@@ -19,19 +21,22 @@ const userSlice = createSlice({
     setUserName: (state, action) => {
       state.name = action.payload;
     },
+    setPassword: (state, action) => {
+      state.password = action.payload;
+    },
     unsetUser: (state) => {
       state.isAuth = false;
       state.email = undefined;
     },
-    addFavorites: (state, { payload }: PayloadAction<IBookDetailsApi>) => {
+    addFavorite: (state, { payload }: PayloadAction<IBookDetailsApi>) => {
       state.favorites = [
         { ...payload },
-        ...state.favorites.filter((item) => item.isbn13 !== payload.isbn13),
+        ...state.favorites.filter((book) => book.isbn13 !== payload.isbn13),
       ];
     },
-    removeFavorites: (state, { payload }: PayloadAction<IBook>) => {
+    deleteFavorite: (state, { payload }: PayloadAction<IBookDetailsApi>) => {
       state.favorites = state.favorites.filter(
-        (item) => item.isbn13 !== payload.isbn13
+        (book) => book.isbn13 !== payload.isbn13
       );
     },
   },
@@ -41,7 +46,8 @@ export const {
   setUser,
   unsetUser,
   setUserName,
-  addFavorites,
-  removeFavorites,
+  setPassword,
+  addFavorite,
+  deleteFavorite,
 } = userSlice.actions;
 export default userSlice.reducer;
