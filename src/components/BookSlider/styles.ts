@@ -19,7 +19,7 @@ export const SlideContainer = styled.div`
   max-width: 600px;
   margin: 0 auto;
 
-  border: 5px solid rgb(166, 156, 172);
+  
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border-radius: 20px;
 `;
