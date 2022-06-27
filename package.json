@@ -1,6 +1,6 @@
 {
   "name": "bookstore",
-  "homepage": "https://zlata-saburova.github.io/bookstore/",
+  "homepage": "https://nickita-krizhanovskiy.github.io/react-bookstore/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -36,7 +36,8 @@
     "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build"
   },
   "eslintConfig": {
     "extends": [

@@ -46,7 +46,7 @@ export const FavoritesItem = ({ book }: IProps) => {
 
   return (
     <FavContainer
-      whileHover={{ scale: 1.03, border: "5px solid rgb(71, 73, 115)" }}
+      whileHover={{ scale: 1.03,  }}
     >
       <StyledLink to={`/bookstore/books/${book.isbn13}`}>
         <Img src={book.image} alt={book.title} />
