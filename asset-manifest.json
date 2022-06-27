@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.js": "/react-bookstore/static/js/main.514e8ea7.js",
+    "static/media/logo.svg": "/react-bookstore/static/media/logo.7cb24bfd069f745101cee82e86f25e00.svg",
+    "static/media/back.svg": "/react-bookstore/static/media/back.3063ef93a84c8059f2fa931c46c27746.svg",
+    "static/media/dark-star.svg": "/react-bookstore/static/media/dark-star.af537a685fdbffeccac2a25ae5192f25.svg",
+    "static/media/light-star.svg": "/react-bookstore/static/media/light-star.2ac4ea0e3e778ec18db0fd77aed42109.svg",
+    "static/media/next.svg": "/react-bookstore/static/media/next.d46cdb8d273a078d2c06a7dc68582c06.svg",
+    "static/media/likes.svg": "/react-bookstore/static/media/likes.c4e05aa7bd6bd249fff1f5109beb1810.svg",
+    "static/media/prev.svg": "/react-bookstore/static/media/prev.5b594af78d33197a92554ebe04fdceae.svg",
+    "static/media/twitter.svg": "/react-bookstore/static/media/twitter.ecedb478f2f0fce234011a1dd7e82d55.svg",
+    "static/media/close.svg": "/react-bookstore/static/media/close.3db68ac6c241cfde62ce53a1efed8394.svg",
+    "index.html": "/react-bookstore/index.html",
+    "static/media/cart.svg": "/react-bookstore/static/media/cart.a51a4fa6dc3e32e1f120122e08524ef9.svg",
+    "static/media/details.svg": "/react-bookstore/static/media/details.ab9d03d69d9c2464acb0089fbd6cd549.svg",
+    "static/media/search.svg": "/react-bookstore/static/media/search.418dccf9c6c8b0954454ca888587b644.svg",
+    "static/media/account.svg": "/react-bookstore/static/media/account.374f708c85fcf8816cf4227ff19d9d9b.svg",
+    "static/media/burger.svg": "/react-bookstore/static/media/burger.bd8ab8c4137304838cc2d1315c9206b4.svg",
+    "static/media/plus.svg": "/react-bookstore/static/media/plus.1c83ee15eef0ce3d5e828f439ffd659e.svg",
+    "static/media/facebook.svg": "/react-bookstore/static/media/facebook.80717051b86e9387319c4483e6232294.svg",
+    "static/media/minus.svg": "/react-bookstore/static/media/minus.fb8f20e69c848301a35d037069a52fde.svg",
+    "main.514e8ea7.js.map": "/react-bookstore/static/js/main.514e8ea7.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.514e8ea7.js"
+  ]
+}
