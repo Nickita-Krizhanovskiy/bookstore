@@ -5,7 +5,7 @@
     <img src="bookstore.svg" alt="Logo" width="100" height="90">
     <p align="center">
     ·
-    <a href="https://nickita-krizhanovskiy.github.io/react-bookstore/">View Demo</a>
+    <a href="https://nickita-krizhanovskiy.github.io/bookstore/">View Demo</a>
     · </p>
 </div>
 
